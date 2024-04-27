@@ -1,0 +1,7 @@
+[submodule "src/app/Web-Plugin-Admin"]
+	path = src/app/Web-Plugin-Admin
+	url = https://github.com/soorajnr/web-plugin-admin
+[submodule "src/app/Web-SharedLibs"]
+	path = src/app/Web-SharedLibs
+	url = https://github.com/soorajnr/web-sharedLibs
+
