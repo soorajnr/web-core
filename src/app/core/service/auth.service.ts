@@ -1,20 +1,14 @@
-// services/auth.service.ts
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
+  constructor(private http: HttpClient) {}
+
   login(username: string, password: string): Observable<any> {
-    // Simulated login request (replace with actual login API call)
-    if (username === 'user' && password === 'password') {
-      return of({ username: 'user', role: 'admin' }).pipe(delay(1000)); // Mocking delay for asynchronous call
-    } else {
-      return of(null).pipe(delay(1000)); // Mocking delay for asynchronous call
-    }
+    return this.http.post<any>('your_login_endpoint', { username, password });
   }
-
-
 }

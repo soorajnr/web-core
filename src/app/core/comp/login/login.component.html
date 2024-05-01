@@ -1,1 +1,29 @@
-<p>login works!</p>
+<!-- login.component.html -->
+<div class="d-flex justify-content-between h-100">
+  <div class="col-8 d-flex justify-content-between bg-light">
+    <img src="assets/img/loginbg.svg" class="w-100 animated bounce"/>
+  </div>
+  <div class="col-4 h-100 d-flex align-items-center">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="d-flex flex-column w-100 p-5">
+      <img src="assets/img/logo.png" width="100" class="mx-auto mb-4" />
+      <h2>Login</h2>
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Username" formControlName="username">
+        <mat-error *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+          Username is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput type="password" placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        <mat-error *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+</div>
+</div>
